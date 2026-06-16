@@ -1,59 +1,114 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Q-Hunt 🎯
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Q-Hunt** is a premium, interactive, real-time QR Code Treasure Hunt platform built with Laravel. It allows administrators to orchestrate physical treasure hunts where teams scan hidden QR codes to unlock stages, solve mind-bending puzzles, and race against the clock to top the live leaderboard.
 
-## About Laravel
+![Q-Hunt Banner](public/images/logo.png)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🌟 Key Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### For Participants (Teams)
+- **Live QR Scanning**: Built-in, browser-based QR scanner using your device's camera.
+- **Dynamic Puzzles**: Solve Text, Number, and Multiple-Choice questions to progress.
+- **Time-Based Scoring**: Earn maximum points by solving stages quickly. Bonus points are awarded for fast times, and penalties are applied for taking too long.
+- **Real-Time Leaderboard**: Watch the live rankings update automatically as teams complete stages.
+- **Grand Finale Podium**: A fully animated, immersive podium screen with confetti and music that triggers the moment the Admin finalizes the event.
+- **Premium UI/UX**: A dark-mode, glassmorphic design that looks stunning on both desktop and mobile devices.
 
-## Learning Laravel
+### For Administrators
+- **Event Management**: Create and manage multiple treasure hunt events.
+- **Stage Builder**: Define the sequence of locations, base points, and the specific puzzles for each stage.
+- **QR Code Generation**: Automatically generates printable QR codes for physical placement at real-world locations.
+- **Live Monitoring Dashboard**: Watch the live progress of all teams. See exactly which stage they are on, their current score, and their timeline.
+- **Revoke & Reset**: Admins can intervene and revoke points for a specific stage if a team bypassed a physical location or cheated.
+- **One-Click Publishing**: Instantly push the live leaderboard or finalize the event, automatically redirecting all active players' screens to the winner's podium.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠️ Technology Stack
 
-## Laravel Sponsors
+- **Backend**: Laravel 11 (PHP)
+- **Frontend**: Blade Templates, TailwindCSS v4, Alpine.js
+- **Assets**: Vite (for lightning-fast HMR and compilation)
+- **Database**: SQLite (Default) / MySQL compatible
+- **QR Scanning**: Html5-Qrcode library
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🚀 Installation & Setup
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Prerequisites
+Make sure you have the following installed on your machine:
+- PHP 8.2+
+- Composer
+- Node.js (v20+) & NPM
 
-## Contributing
+### Step-by-Step Guide
+1. **Clone the repository** (if applicable) and navigate to the folder:
+   ```bash
+   cd "QR Tresure Hunt Management"
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. **Install PHP Dependencies**:
+   ```bash
+   composer install
+   ```
 
-## Code of Conduct
+3. **Install Node Dependencies**:
+   ```bash
+   npm install
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4. **Environment Setup**:
+   Copy the example `.env` file and generate an application key:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-## Security Vulnerabilities
+5. **Database Migration**:
+   Run the migrations to create the database schema:
+   ```bash
+   php artisan migrate
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6. **Build Frontend Assets**:
+   Compile the TailwindCSS styles and JavaScript:
+   ```bash
+   npm run build
+   ```
 
-## License
+7. **Start the Local Server**:
+   ```bash
+   php artisan serve
+   ```
+   Visit `http://localhost:8000` in your browser!
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 📱 Hosting on a Local Network (LAN)
+
+If you are running the game for a local event and want users to connect via their mobile phones without deploying to a live web server:
+
+1. **Find your IPv4 Address**: 
+   Open Command Prompt/PowerShell and run `ipconfig`. Find your IPv4 address (e.g., `192.168.1.5`).
+
+2. **Run Laravel bound to your network**:
+   ```bash
+   php artisan serve --host=0.0.0.0 --port=8000
+   ```
+
+3. **Allow through Firewall**:
+   Ensure Windows Defender Firewall allows inbound traffic on TCP Port `8000`. You can add the rule via Admin PowerShell:
+   ```powershell
+   New-NetFirewallRule -DisplayName "Allow Laravel" -Direction Inbound -LocalPort 8000 -Protocol TCP -Action Allow
+   ```
+
+4. **Connect**:
+   Have players connect to the exact same Wi-Fi network and browse to `http://<YOUR-IP>:8000` (Make sure they type `http://` and not `https://`).
+
+---
+
+## 👨‍💻 Author / Credits
+Designed and Developed as a custom Laravel Application for seamless digital treasure hunting.

@@ -74,7 +74,7 @@
                         </a>
                     @else
                         <a href="{{ route('login') }}" class="px-6 py-2.5 rounded-full font-semibold text-gray-300 hover:text-white transition">
-                            Log in
+                            
                         </a>
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 font-bold shadow-[0_0_20px_rgba(6,182,212,0.4)] transition transform hover:scale-105">
@@ -148,7 +148,7 @@
         </div>
 
         <footer class="w-full text-center py-8 text-gray-500 relative z-10 border-t border-white/5 bg-black/20 backdrop-blur-md">
-            &copy; {{ date('Y') }} Q-Hunt Platform. All rights reserved.
+            &copy; {{ date('Y') }} Deneth Kavishka | Q-Hunt Platform. All rights reserved.
         </footer>
     </body>
 </html>

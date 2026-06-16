@@ -2,13 +2,13 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden shadow-sm rounded-2xl mb-6">
-            <div class="p-6 flex items-center justify-between">
+            <div class="p-4 sm:p-6 flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4 text-center sm:text-left">
                 <div>
-                    <h2 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">Team: {{ $team->name }}</h2>
-                    <p class="text-gray-400">Current Score: <span class="font-bold text-emerald-400">{{ $currentScore }} pts</span></p>
+                    <h2 class="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">Team: {{ $team->name }}</h2>
+                    <p class="text-sm sm:text-base text-gray-400 mt-1">Current Score: <span class="font-bold text-emerald-400">{{ $currentScore }} pts</span></p>
                 </div>
-                <div class="text-right">
-                    <p class="text-sm text-gray-400">Progress</p>
+                <div class="sm:text-right bg-black/20 sm:bg-transparent px-6 py-2 sm:p-0 rounded-xl sm:rounded-none w-full sm:w-auto">
+                    <p class="text-xs sm:text-sm text-gray-400 uppercase tracking-widest sm:normal-case sm:tracking-normal">Progress</p>
                     <h3 class="text-xl font-bold text-white">Stage {{ $progress ? $progress->currentStage->order : 0 }}</h3>
                 </div>
             </div>

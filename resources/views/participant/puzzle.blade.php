@@ -48,19 +48,24 @@
         <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl relative">
             <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
             
-            <div class="p-6 border-b border-white/10 flex justify-between items-center bg-white/5 z-10 relative">
-                <div>
-                    <h2 class="text-xl font-bold text-white">Stage {{ $stage->order }}: {{ $stage->name }}</h2>
-                    <p class="text-sm text-gray-400">Base points: <span class="text-emerald-400 font-bold">{{ $stage->points }}</span></p>
+            <div class="p-4 sm:p-6 border-b border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white/5 z-10 relative">
+                <div class="w-full sm:w-auto">
+                    <h2 class="text-xl sm:text-2xl font-bold text-white leading-tight">Stage {{ $stage->order }}: {{ $stage->name }}</h2>
+                    <p class="text-sm text-gray-400 mt-1">Base points: <span class="text-emerald-400 font-bold">{{ $stage->points }}</span></p>
                 </div>
                 
                 @if($stage->end_time)
-                <div class="text-right">
-                    <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Time Remaining</p>
-                    <div id="countdown" class="text-2xl font-mono font-bold text-emerald-400 bg-black/40 px-3 py-1 rounded-lg border border-white/10" data-endtime="{{ $stage->end_time->toIso8601String() }}">
-                        00:00
+                <div class="w-full sm:w-auto flex justify-between sm:block sm:text-right bg-black/20 sm:bg-transparent p-3 sm:p-0 rounded-lg sm:rounded-none">
+                    <div class="flex flex-col justify-center">
+                        <p class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest mb-1 hidden sm:block">Time Remaining</p>
+                        <p class="text-[10px] sm:text-xs text-red-400/50 font-bold uppercase tracking-widest sm:hidden">{{ ($question->max_attempts ?? 3) - ($attemptsCount ?? 0) }} Attempts Left</p>
                     </div>
-                    <p class="text-[10px] text-red-400/50 mt-2 font-bold uppercase tracking-widest">{{ ($question->max_attempts ?? 3) - ($attemptsCount ?? 0) }} Attempts Left</p>
+                    <div class="flex flex-col items-end">
+                        <div id="countdown" class="text-xl sm:text-2xl font-mono font-bold text-emerald-400 bg-black/40 px-3 py-1 rounded-lg border border-white/10" data-endtime="{{ $stage->end_time->toIso8601String() }}">
+                            00:00
+                        </div>
+                        <p class="text-[10px] text-red-400/50 mt-1 font-bold uppercase tracking-widest hidden sm:block">{{ ($question->max_attempts ?? 3) - ($attemptsCount ?? 0) }} Attempts Left</p>
+                    </div>
                 </div>
                 @else
                 <div class="text-right flex flex-col items-end">
