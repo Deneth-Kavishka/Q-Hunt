@@ -95,12 +95,19 @@ class ParticipantController extends Controller
     public function podium()
     {
         $user = Auth::user();
-        $team = $user->teams()->first();
-        if (!$team) return redirect()->route('dashboard');
+        
+        if ($user->role_id == 1) {
+            $event = \App\Models\Event::where('is_published', true)->latest()->first();
+            if (!$event) return redirect()->route('admin.dashboard');
+            $team = null;
+        } else {
+            $team = $user->teams()->first();
+            if (!$team) return redirect()->route('dashboard');
 
-        $event = $team->event;
-        if (!$event->is_published) {
-            return redirect()->route('dashboard');
+            $event = $team->event;
+            if (!$event->is_published) {
+                return redirect()->route('dashboard');
+            }
         }
 
         $topTeams = \App\Models\Team::where('event_id', $event->id)

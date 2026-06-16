@@ -77,6 +77,9 @@
                         <a href="{{ route('admin.events.monitor', $event) }}" class="text-xs px-2 py-1 bg-purple-600/30 text-purple-400 hover:bg-purple-600 hover:text-white rounded border border-purple-500/30 transition" title="Monitor Hunt">
                             <i class="fa-solid fa-desktop"></i> Monitor
                         </a>
+                        <a href="{{ route('leaderboard') }}" target="_blank" class="text-xs px-2 py-1 bg-cyan-600/30 text-cyan-400 hover:bg-cyan-600 hover:text-white rounded border border-cyan-500/30 transition" title="View Live Leaderboard">
+                            <i class="fa-solid fa-ranking-star"></i> Leaderboard
+                        </a>
                     </div>
                     @elseif($event->is_published)
                     <div class="flex items-center justify-end gap-2 border-t border-white/5 pt-2 mt-2">
@@ -85,6 +88,12 @@
                         </span>
                         <a href="{{ route('admin.events.monitor', $event) }}" class="text-xs px-2 py-1 bg-purple-600/30 text-purple-400 hover:bg-purple-600 hover:text-white rounded border border-purple-500/30 transition" title="View Event History">
                             <i class="fa-solid fa-clock-rotate-left mr-1"></i> History
+                        </a>
+                        <a href="{{ route('leaderboard') }}" target="_blank" class="text-xs px-2 py-1 bg-cyan-600/30 text-cyan-400 hover:bg-cyan-600 hover:text-white rounded border border-cyan-500/30 transition" title="View Final Leaderboard">
+                            <i class="fa-solid fa-ranking-star mr-1"></i> Leaderboard
+                        </a>
+                        <a href="{{ route('participant.podium') }}" target="_blank" class="text-xs px-2 py-1 bg-yellow-600/30 text-yellow-400 hover:bg-yellow-600 hover:text-white rounded border border-yellow-500/30 transition" title="View Winner Podium">
+                            <i class="fa-solid fa-crown mr-1"></i> Podium
                         </a>
                     </div>
                     @endif
